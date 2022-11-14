@@ -42,7 +42,7 @@ qitem02 = 4321
                         if (result == 0) then
                             state = 1   --mission 1
                         elseif (result == 1) then
-                                SAY(" Sorry %PLAYER_NAME , you have already completed this mission. ")
+                                SAY(" Sorry %PLAYER_NAME() , you have already completed this mission. ")
                                 ENDDIALOG()
                         end
                 else
