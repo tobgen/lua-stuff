@@ -31,7 +31,8 @@ qitem02 = 4321
         local qitemname02="Warbot Cola"
 
 -- missionflag=0 --> start misstion 1
--- missionflag=1 --> mission already completed
+-- missionflag=1 --> start misstion 2
+-- missionflag=2 --> mission already completed
 
 
     NODE(0)
@@ -98,6 +99,12 @@ qitem02 = 4321
                 ENDDIALOG()
                 DIE()
             end
+
+--  NODE(17)
+--        SETDATA(missionflag,2)
+--        SETNEXTDIALOGSTATE(18)
+--        SAY(" Please go and see Gerald Forsyte, he is waiting for you outside PP HQ." )
+--        ENDDIALOG()
 
     NODE(20)
         SETDATA(missionflag,1)
