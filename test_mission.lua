@@ -1,5 +1,5 @@
 --*************************************
---named     : test_mission.lua
+--name      : test_mission.lua
 --ver       : 0.1
 --author    : Tinyhorns
 --date      : 14.11.2022
