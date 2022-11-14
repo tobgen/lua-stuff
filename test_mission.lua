@@ -89,7 +89,7 @@ qitem02 = 4321
     NODE(16)
         TAKEITEMCNT(qitem02,1)
             if (result == 1) then
-                SETNEXTDIALOGSTATE(17)
+                SETNEXTDIALOGSTATE(20)
                 SAY(" HELP! The Tofu is stuck in my throat, Quick Runner, give me the "..qitemname02.." so I can wash it down! ")
                 ANSWER(" - Give the "..qitemname02.." - ", 20)
             else
