@@ -35,7 +35,7 @@ mission02 = 5002
         local missionflag="test_mission"
         local qitemname01="Tofu sausages in poisonous plant puree"
         local qitemname02="Warbot Cola"
-	local killtarget01="Protoype Ceres Hover Infantry Trooper" 
+	    local killtarget01="Protoype Ceres Hover Infantry Trooper" 
 	
 -- missionflag=0 --> start misstion 1
 -- missionflag=1 --> start misstion 2
