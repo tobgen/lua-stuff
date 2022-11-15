@@ -26,8 +26,6 @@
 qitem01 = 1234
 qitem02 = 4321
 
---- MissionRewards
-money = 15000
 
     function DIALOG()
         local missionflag="test_mission"
@@ -158,7 +156,7 @@ money = 15000
     NODE(82)
 	SETDATA(missionflag,2)
 	SAY("Good job Runner!)
-	GIVEMONEY(money)
+	GIVEMONEY(reward)
 	ACTIVATEDIALOGTRIGGER(0)
 	ENDDIALOG()
 	
