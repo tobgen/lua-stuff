@@ -131,7 +131,7 @@ mission02 = 5002
 -- Mission02
     NODE(75)
 	SAY(" I'm busy, what do you want Runner? ")
-	ANSWER(" A not to hungry man sent me. ", 76)
+	ANSWER(" A not so hungry man sent me. ", 76)
 	ANSWER(" Nothing, wrong number, sorry",80 )
 
 
