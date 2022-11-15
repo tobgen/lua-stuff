@@ -31,7 +31,8 @@ qitem02 = 4321
         local qitemname02="Warbot Cola"
 
 -- missionflag=0 --> start misstion 1
--- missionflag=1 --> mission already completed
+-- missionflag=1 --> start misstion 2
+-- missionflag=2 --> mission already completed
 
 
     NODE(0)
@@ -41,9 +42,11 @@ qitem02 = 4321
                     GETDATA(missionflag)
                         if (result == 0) then
                             state = 1   --mission 1
-                        elseif (result == 1) then
-                                SAY(" Sorry %PLAYER_NAME() , you have already completed this mission. ")
-                                ENDDIALOG()
+			elseif (result == 1) then
+		       	    state = 2 --mission2
+                        elseif (result == 2) then
+                            SAY(" Sorry %PLAYER_NAME() , you have already completed this mission. ")
+                            ENDDIALOG()
                         end
                 else
                     SAY(" Please come back and see mee after you have finished your Oatmeal. ")
@@ -68,6 +71,8 @@ qitem02 = 4321
         ANSWER(" Sure, comming right up", 10)
         ANSWER(" Get your own food!", 2)
 
+
+--mission01
     NODE(10)
         STARTMISSION(mission01)
         SAY(" Please hurry, I'm dying here! ")
@@ -75,7 +80,7 @@ qitem02 = 4321
         ENDDIALOG()
 
     NODE(15)
-        TAKEITEMCNT(qitem01,1)
+        TAKEITEM(qitem01)
             if (result == 1) then
                 SETNEXTDIALOGSTATE(16)
                 SAY(" Give me "..qitemname01.." so I do not die of hunger please! ")
@@ -87,7 +92,7 @@ qitem02 = 4321
             end
 
     NODE(16)
-        TAKEITEMCNT(qitem02,1)
+        TAKEITEM(qitem02)
             if (result == 1) then
                 SETNEXTDIALOGSTATE(20)
                 SAY(" HELP! The Tofu is stuck in my throat, Quick Runner, give me the "..qitemname02.." so I can wash it down! ")
@@ -99,8 +104,58 @@ qitem02 = 4321
                 DIE()
             end
 
+
     NODE(20)
         SETDATA(missionflag,1)
-        SAY(" Thank you Runner!, you have saved my life! ")
+        SAY(" Thank you Runner!, you have saved my life!\nI have something for you in return.\nTalk to me again when you are ready for another challenge.  ")
         ACTIVATEDIALOGTRIGGER(0)
         ENDDIALOG()
+
+
+
+    NODE(32)
+	STARTMISSION(mission02)
+        SAY(" Please go and see Gerald Forsyte, he is waiting for you outside PP HQ." )
+        SETNEXTDIALOGSTATE(75)
+        ENDDIALOG()
+
+
+
+-- Mission02
+    NODE(75)
+	SAY(" I'm busy, what do you want Runner? ")
+	ANSWER(" A not to hungry man sent me. ", 76)
+	ANSWER(" Nothing, wrong number, sorry",80 )
+
+
+   NODE(76)
+	SAY(" I want to you kill 10 "..killtarget01.." located in one of the Ceres Labs.\Do you think you are up for it? ")
+	ANSWER(" - Hell yea, bring it baby!", 78)
+	ANSWER(" - Hell NO!, I'm way to scared!", 90) 
+	
+
+   NODE(78)
+	SAY(" Go now Runner, Hurry!)
+	SETNEXTDIALOGSTATE(80)
+	ENDDIALOG()
+
+   NODE(80)
+	IMISSIONTARGETACCOMPLISHED(0)
+		if (result==1) 
+			SAY("Good Job runner, you removed some of those pesky "..killtarget01.."\nI hope you found something useful down there as well. ")
+			SETNEXTDIALOGSTATE(82)
+			ENDDIALOG()
+		else
+			SAY("You have not killed enough "..killtarget01..", To hard for you?\Go now and don't comeback until you have killed some more! ")
+			ENDDIALOG()
+		end
+			 
+    NODE(82)
+	SETDATA(missionflag,2)
+	SAY("Good job Runner!)
+	ACTIVATEDIALOGTRIGGER(0)
+	ENDDIALOG()
+	
+    NODE(90)	
+	SAY(" Have a nice day Runner. ")
+	ENDDIALOG()
