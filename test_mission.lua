@@ -29,7 +29,8 @@ qitem02 = 4321
         local missionflag="test_mission"
         local qitemname01="Tofu sausages in poisonous plant puree"
         local qitemname02="Warbot Cola"
-
+	local killtarget01="Protoype Ceres Hover Infantry Trooper" 
+	
 -- missionflag=0 --> start misstion 1
 -- missionflag=1 --> start misstion 2
 -- missionflag=2 --> mission already completed
@@ -43,7 +44,7 @@ qitem02 = 4321
                         if (result == 0) then
                             state = 1   --mission 1
 			elseif (result == 1) then
-		       	    state = 2 --mission2
+		       	    state = 2   --mission2
                         elseif (result == 2) then
                             SAY(" Sorry %PLAYER_NAME() , you have already completed this mission. ")
                             ENDDIALOG()
