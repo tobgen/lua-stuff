@@ -102,7 +102,7 @@ qitem02 = 4321
                 ANSWER(" - Give the "..qitemname02.." - ", 20)
             else
                 SAY(" You forgot to bring the "..qitemname01.." , Good bye cruel life! " )
-                SETNEXTDIALOGSTATE(15)
+                SETNEXTDIALOGSTATE(16)
                 ENDDIALOG()
                 DIE()
             end
@@ -132,7 +132,7 @@ qitem02 = 4321
 
 
    NODE(76)
-	SAY(" I want to you kill 10 "..killtarget01.." located in one of the Ceres Labs.\Do you think you are up for it? ")
+	SAY(" I want to you kill 10 "..killtarget01.." located in one of the Ceres Labs.\nDo you think you are up for it? ")
 	ANSWER(" - Hell yea, bring it baby!", 78)
 	ANSWER(" - Hell NO!, I'm way to scared!", 90) 
 	
@@ -149,7 +149,8 @@ qitem02 = 4321
 		SETNEXTDIALOGSTATE(82)
 		ENDDIALOG()
 	    else
-		SAY("You have not killed enough "..killtarget01..", To hard for you?\Go now and don't comeback until you have killed some more! ")
+		SAY("You have not killed enough "..killtarget01..", To hard for you?\nGo now and don't comeback until you have killed some more! ")
+        SETNEXTDIALOGSTATE(80)
 		ENDDIALOG()
 	    end
 			 
@@ -157,7 +158,7 @@ qitem02 = 4321
 	SETDATA(missionflag,2)
 	SAY("Good job Runner!)
 	GIVEMONEY(reward)
-	ACTIVATEDIALOGTRIGGER(0)
+	ACTIVATEDIALOGTRIGGER(1)
 	ENDDIALOG()
 	
     NODE(90)	
