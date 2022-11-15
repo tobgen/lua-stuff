@@ -18,6 +18,7 @@
 --*************************************
 --changelog:
 --14.11.2022 0.1: Initial try
+--14.11.2022 0.2: Mission02 added, kill stuff
 
 
 
