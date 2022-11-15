@@ -26,6 +26,10 @@
 qitem01 = 1234
 qitem02 = 4321
 
+--- Missions
+mission01 = 5001
+mission02 = 5002
+
 
     function DIALOG()
         local missionflag="test_mission"
