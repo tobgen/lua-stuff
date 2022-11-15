@@ -141,14 +141,14 @@ qitem02 = 4321
 
    NODE(80)
 	IMISSIONTARGETACCOMPLISHED(0)
-		if (result==1) 
-			SAY("Good Job runner, you removed some of those pesky "..killtarget01.."\nI hope you found something useful down there as well. ")
-			SETNEXTDIALOGSTATE(82)
-			ENDDIALOG()
-		else
-			SAY("You have not killed enough "..killtarget01..", To hard for you?\Go now and don't comeback until you have killed some more! ")
-			ENDDIALOG()
-		end
+	    if (result==1) 
+		SAY("Good Job runner, you removed some of those pesky "..killtarget01.."\nI hope you found something useful down there as well. ")
+		SETNEXTDIALOGSTATE(82)
+		ENDDIALOG()
+	    else
+		SAY("You have not killed enough "..killtarget01..", To hard for you?\Go now and don't comeback until you have killed some more! ")
+		ENDDIALOG()
+	    end
 			 
     NODE(82)
 	SETDATA(missionflag,2)
