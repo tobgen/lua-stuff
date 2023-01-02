@@ -132,7 +132,34 @@ function DIALOG()
         ANSWER(" DoY Units? I'm out.", 41)
 
     NODE(43)
-	STARTMISSION(mission02)
-	SAY(" Go quickly now. ")
-	SETNEXTDIALOGSTATE(80)
-	ENDDIALOG()
+	    STARTMISSION(mission02)
+	    SAY(" Go quickly now. ")
+	    SETNEXTDIALOGSTATE(80)
+	    ENDDIALOG()
+
+
+
+    NODE(80)
+        SAY("Careful runner, keep your voice down. There are everywhere.")
+        ANSWER("I was sent by Dr Fleming, did you find the lab?", 82)
+        ANSWER("I do not have time for you", 81)
+
+    NODE(81)
+        SAY("Then go, very quite!")
+        ENDDIALOG()
+
+    NODE(82)
+        SAY("I found it! Its a bit to the west from here, well hidden.\nBut the outside is guarded by DoY units and even if you make it inside....")
+        ANSWER("...", 83)
+        
+    NODE(83)    
+        SAY("It's said to be guarded by Ceres Infantry Troops, some of the most advanced and formidable soldiers in the wasteland. \nIf you do decide to go, be prepared for a tough fight. ")
+        ANSWER("...", 84)
+         
+    NODE(84)
+        SAY("It's not an easy place to find, and even if you do, you'll have to be careful. \nThe Ceres Troops don't take kindly to outsiders poking around in their affairs.\nThey'll do whatever it takes to protect that lab and its secrets...")
+        ANSWER("I did not come this far to turn around and run, time to dive in!", 85)
+        ANSWER("I'm out, not going near crazy DoY Units or Ceres Troops", 81)
+
+    NODE(85)
+        SAY("Kill 10 Experimental Ceres Infantry Troopers and report back to me.")
