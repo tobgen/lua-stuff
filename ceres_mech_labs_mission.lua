@@ -1,6 +1,6 @@
 --*************************************
 --name      : ceres_mech_labs_mission.lua
---ver       : 0.1
+--ver       : 0.2
 --author    : Tinyhorns
 --date      : 15.11.2022
 --lang      : eng
@@ -12,6 +12,7 @@
 --*************************************
 --changelog:
 --15.11.2022 0.1: Initial release
+--02.01.2023 0.2: adding some more running
 
 
 
