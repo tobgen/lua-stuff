@@ -87,10 +87,10 @@ function DIALOG()
         ANSWER("I don't have time to chase rumors around, bye! ",2)
 
     NODE(10)
-		STARTMISSION(mission01)
-		SAY(" Go quickly now. ")
-		SETNEXTDIALOGSTATE(20)
-		ENDDIALOG()
+	STARTMISSION(mission01)
+	SAY(" Go quickly now. ")
+	SETNEXTDIALOGSTATE(20)
+	ENDDIALOG()
 
     NODE(20) -- Hacking Pete
         SAY(" What do you want, can't you see I'm busy?" )
@@ -112,9 +112,9 @@ function DIALOG()
 
     NODE(24)
         SAY("You got it.\nAssistant Boskins was last seen in the tower in the north eastern part of the wastelands. \nHe's probably still there, but who knows. He's a slippery one. \nI heard he's been looking for a secret biomechanical lab. Maybe that's where he's headed. \nReport back to Dr Fleming.")
-		SETDATA(missionflag,1)
-		ACTIVATEDIALOGTRIGGER(0)
-		ENDDIALOG()
+	SETDATA(missionflag,1)
+	ACTIVATEDIALOGTRIGGER(0)
+	ENDDIALOG()
 
 
     NODE(40)  -- Dr Fleming
