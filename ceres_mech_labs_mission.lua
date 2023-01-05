@@ -164,10 +164,19 @@ function DIALOG()
     NODE(85)
         SAY("Kill 10 Experimental Ceres Infantry Troopers and report back to me.")
 	    STARTMISSION(mission03)
-	    SETNEXTDIALOGSTATE(120)
+	    SETNEXTDIALOGSTATE(90)
 	    ENDDIALOG()
 
-
+    NODE(90)  -- add a variable for the mob
+            if (result==1)
+                SAY("Good Job runner, you removed some of those pesky Troopers!\nI hope you found something useful down there as well. ")
+                SETNEXTDIALOGSTATE(100)
+                ENDDIALOG()
+            else
+                SAY("You have not killed enough Troopers, To hard for you?\nGo now and don't comeback until you have killed some more! ")
+        SETNEXTDIALOGSTATE(90)
+                ENDDIALOG()
+            end
 
 
 
@@ -176,3 +185,15 @@ function DIALOG()
 	    STARTMISSION(mission04)
 	    SETNEXTDIALOGSTATE(150)
 	    ENDDIALOG()
+
+    NODE(150) -- add a variable for the mob
+        IMISSIONTARGETACCOMPLISHED(0)
+            if (result==1)
+                SAY("Good Job runner, you removed some of those pesky Troopers!\nI hope you found something useful down there as well. ")
+                SETNEXTDIALOGSTATE(100)
+                ENDDIALOG()
+            else
+                SAY("You have not killed enough Troopers, To hard for you?\nGo now and don't comeback until you have killed some more! ")
+        SETNEXTDIALOGSTATE(90)
+                ENDDIALOG()
+            end
