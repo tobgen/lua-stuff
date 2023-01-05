@@ -195,6 +195,6 @@ function DIALOG()
                 ENDDIALOG()
             else
                 SAY("You have not killed enough "..killtarget02..", To hard for you?\nGo now and don't comeback until you have killed some more! ")
-        SETNEXTDIALOGSTATE(90)
+        SETNEXTDIALOGSTATE(150)
                 ENDDIALOG()
             end
