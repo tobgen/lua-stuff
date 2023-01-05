@@ -87,10 +87,10 @@ function DIALOG()
         ANSWER("I don't have time to chase rumors around, bye! ",2)
 
     NODE(10)
-	STARTMISSION(mission01)
-	SAY(" Go quickly now. ")
-	SETNEXTDIALOGSTATE(20)
-	ENDDIALOG()
+	    STARTMISSION(mission01)
+	    SAY(" Go quickly now. ")
+        SETNEXTDIALOGSTATE(20)
+        ENDDIALOG()
 
     NODE(20) -- Hacking Pete
         SAY(" What do you want, can't you see I'm busy?" )
@@ -149,7 +149,7 @@ function DIALOG()
         ENDDIALOG()
 
     NODE(82)
-        SAY("I found it! Its a bit to the west from here, well hidden.\nBut the outside is guarded by DoY units and even if you make it inside....")
+        SAY("I found it! Its a bit to the west from here, well hidden.\nBut the outside is guarded by DoY units and even if you make it inside. \nBut the Ceres Disks are in there, of that I'm sure.")
         ANSWER("...", 83)
         
     NODE(83)    
@@ -163,3 +163,16 @@ function DIALOG()
 
     NODE(85)
         SAY("Kill 10 Experimental Ceres Infantry Troopers and report back to me.")
+	    STARTMISSION(mission03)
+	    SETNEXTDIALOGSTATE(120)
+	    ENDDIALOG()
+
+
+
+
+
+    NODE(130)
+        SAY("Kill 10 Prototype Ceres Infantry Troopers and report back to me.")
+	    STARTMISSION(mission04)
+	    SETNEXTDIALOGSTATE(150)
+	    ENDDIALOG()
