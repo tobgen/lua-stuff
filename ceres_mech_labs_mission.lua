@@ -7,13 +7,14 @@
 --desc      : Guiding Runners towards the Ceres biomechanic labs, and teaching them how to aquire WoC-disks
 --npcs:
 --NPCID: XXXX           Dr Fleming, Location: Biological Research Lab - Plaza 3
---       StartNPC       (NPC Starts all missions)
+--       StartNPC       (NPC Starts first and 2nd mission)
+--       Assistant Boskins (start 3rd and 4th mission)
 
 --*************************************
 --changelog:
 --15.11.2022 0.1: Initial release
 --02.01.2023 0.2: adding some more running
-
+--31-01-2023 0.3: changing location of Boskins
 
 
 --- Missions
@@ -112,7 +113,7 @@ function DIALOG()
         ANSWER(" I don't have that kind of money", 21)
 
     NODE(24)
-        SAY("You got it.\nAssistant Boskins was last seen in the tower in the north eastern part of the wastelands. \nHe's probably still there, but who knows. He's a slippery one. \nI heard he's been looking for a secret biomechanical lab. Maybe that's where he's headed. \nReport back to Dr Fleming.")
+        SAY("You got it.\nAssistant Boskins was last seen in the mountains north of Tech Haven. \nHe's probably still there, but who knows. He's a slippery one. \nI heard he's been looking for a secret biomechanical lab. Maybe that's where he's headed. \nReport back to Dr Fleming.")
 	SETDATA(missionflag,1)
 	ACTIVATEDIALOGTRIGGER(0)
 	ENDDIALOG()
@@ -120,17 +121,17 @@ function DIALOG()
 
     NODE(40)  -- Dr Fleming
         SAY(" Did Hacking Pete tell you anything useful?")
-        ANSWER("He said something about a tower in the north eastern part of the wastelands", 42)
-        ANSWER(" I do not have time for this right now....", 41)
+        ANSWER("He said something about Tech Haven, or north of", 42)
+        ANSWER("I do not have time for this right now....", 41)
     
     NODE(41)
-        SAY(" Run away little girl, run away! ")
+        SAY("Run away little girl, run away! ")
         ENDDIALOG()
     
-    NODE(42)
-        SAY(" I think I know that tower, it's very close to where Snacky has his workshop.\nIt's guarded by nasty DoY Units, so be careful runner.")
-        ANSWER(" Time to grab the big guns, I'm going over there right now.", 43)
-        ANSWER(" DoY Units? I'm out.", 41)
+    NODE(42) -- TODO: check location, and write a better dialog
+        SAY("I think I know that tower, it's very close to where Snacky has his workshop.\nIt's guarded by nasty DoY Units, so be careful runner.")
+        ANSWER("Time to grab the big guns, I'm going over there right now.", 43)
+        ANSWER("DoY Units? I'm out.", 41)
 
     NODE(43)
 	    STARTMISSION(mission02)
@@ -149,7 +150,7 @@ function DIALOG()
         SAY("Then go, very quite!")
         ENDDIALOG()
 
-    NODE(82)
+    NODE(82) -- TODO: update directions when location has been scouted
         SAY("I found it! Its a bit to the west from here, well hidden.\nBut the outside is guarded by DoY units and even if you make it inside. \nBut the Ceres Disks are in there, of that I'm sure.")
         ANSWER("...", 83)
         
@@ -168,7 +169,7 @@ function DIALOG()
 	    SETNEXTDIALOGSTATE(90)
 	    ENDDIALOG()
 
-    NODE(90)  -- add a variable for the mob
+    NODE(90)
             if (result==1)
                 SAY("Good Job runner, you removed some of those pesky "..killtarget01.."\nI hope you found something useful down there as well. ")
                 SETNEXTDIALOGSTATE(100)
