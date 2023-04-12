@@ -15,7 +15,7 @@
 --15.11.2022 0.1: Initial release
 --02.01.2023 0.2: adding some more running
 --31-01-2023 0.3: changing location of Boskins
-
+--12-04-2023 0.4: rewrite to match new location, G_05
 
 --- Missions
 mission01 = 5001  -- Gather information about the wereabouts of BioMecanical Labs
@@ -113,7 +113,7 @@ function DIALOG()
         ANSWER(" I don't have that kind of money", 21)
 
     NODE(24)
-        SAY("You got it.\nAssistant Boskins was last seen in the mountains north of Tech Haven. \nHe's probably still there, but who knows. He's a slippery one. \nI heard he's been looking for a secret biomechanical lab. Maybe that's where he's headed. \nReport back to Dr Fleming.")
+        SAY("You got it.\nAssistant Boskins was last seen in the mountains north of Regants \nHe's probably still there, but who knows. He's a slippery one. \nI heard he's been looking for a secret biomechanical lab. Maybe that's where he's headed. \nReport back to Dr Fleming.")
 	SETDATA(missionflag,1)
 	ACTIVATEDIALOGTRIGGER(0)
 	ENDDIALOG()
@@ -121,7 +121,7 @@ function DIALOG()
 
     NODE(40)  -- Dr Fleming
         SAY(" Did Hacking Pete tell you anything useful?")
-        ANSWER("He said something about Tech Haven, or north of", 42)
+        ANSWER("He said something about Regants, north of Regans, mountains", 42)
         ANSWER("I do not have time for this right now....", 41)
     
     NODE(41)
@@ -129,9 +129,9 @@ function DIALOG()
         ENDDIALOG()
     
     NODE(42) -- TODO: check location, and write a better dialog
-        SAY("I think I know that tower, it's very close to where Snacky has his workshop.\nIt's guarded by nasty DoY Units, so be careful runner.")
+        SAY("I remember when I was a little kid, my father used to take me camping near Greycore Outpost, But I did never see any lab there, maybe it's more up, and towards the coast?.\nAll I remember is that we was not allowed to go that way.\nThe mountains is full of Hoverbots.")
         ANSWER("Time to grab the big guns, I'm going over there right now.", 43)
-        ANSWER("DoY Units? I'm out.", 41)
+        ANSWER("Hoverbots? I'm out.", 41)
 
     NODE(43)
 	    STARTMISSION(mission02)
@@ -141,7 +141,7 @@ function DIALOG()
 
 
 
-    NODE(80)
+    NODE(80)  -- Boskins 
         SAY("Careful runner, keep your voice down. There are everywhere.")
         ANSWER("I was sent by Dr Fleming, did you find the lab?", 82)
         ANSWER("I do not have time for you", 81)
@@ -151,17 +151,20 @@ function DIALOG()
         ENDDIALOG()
 
     NODE(82) -- TODO: update directions when location has been scouted
-        SAY("I found it! Its a bit to the west from here, well hidden.\nBut the outside is guarded by DoY units and even if you make it inside. \nBut the Ceres Disks are in there, of that I'm sure.")
-        ANSWER("...", 83)
+        SAY("I found it! Its a bit to the north from here, down the hill.\nBut the outside is guarded by Hoverbots and even if you make it inside, there will be trouble waiting.")
+    	SETDATA(missionflag,1)
+	    ACTIVATEDIALOGTRIGGER(0)
+	    ENDDIALOG()    
+        
         
     NODE(83)    
         SAY("It's said to be guarded by Ceres Infantry Troops, some of the most advanced and formidable soldiers in the wasteland. \nIf you do decide to go, be prepared for a tough fight. ")
         ANSWER("...", 84)
          
     NODE(84)
-        SAY("It's not an easy place to find, and even if you do, you'll have to be careful. \nThe Ceres Troops don't take kindly to outsiders poking around in their affairs.\nThey'll do whatever it takes to protect that lab and its secrets...")
+        SAY("The Ceres Troops don't take kindly to outsiders poking around in their affairs.\nThey'll do whatever it takes to protect that lab and its secrets...\nBut the Ceres Disks are in there, of that I'm sure.")
         ANSWER("I did not come this far to turn around and run, time to dive in!", 85)
-        ANSWER("I'm out, not going near crazy DoY Units or Ceres Troops", 81)
+        ANSWER("I'm out, not going near crazy Hoverbots or Ceres Troops", 81)
 
     NODE(85)
         SAY("Kill 10 "..killtarget01.." and report back to me.")
